@@ -7,4 +7,5 @@ export const Header = styled.h1`
   font-weight: 900;
   display: inline-flex;
   letter-spacing: -2px;
+  margin-top: 3%;
 `;
