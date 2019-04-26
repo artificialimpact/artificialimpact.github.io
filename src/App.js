@@ -13,6 +13,7 @@ import { SECONDARY } from "./constants/colors";
 import { Disqus, DisqusContainer } from "./components/Disqus";
 import { Footer } from "./components/Footer";
 import animateScrollTo from "animated-scroll-to";
+import { options } from "./heplers/scrollOptions";
 
 function App() {
   const [announcements, setAnnouncements] = React.useState([
