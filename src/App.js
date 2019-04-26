@@ -43,8 +43,9 @@ function App() {
         </ButtonContainer>
       </Container>
       <Container>
-        <Header announcements>Announcements</Header>
-        {/* <AnnouncementsList data={announcements} /> */}
+        <Header id="announcements" announcements>
+          Announcements
+        </Header>
       </Container>
       <DisqusContainer ref={disqusRef}>
         <Disqus />
