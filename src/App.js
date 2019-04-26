@@ -16,40 +16,8 @@ import animateScrollTo from "animated-scroll-to";
 import { options } from "./heplers/scrollOptions";
 
 function App() {
-  const [announcements, setAnnouncements] = React.useState([
-    { detailText: "Any body Help me?", type: "need" },
-    { detailText: "Yeah, I can Help you :)", type: "offer" },
-    { detailText: "I need your Help!", type: "need" }
-  ]);
-  const disqusRef = React.useRef();
-
-  const Modal = (title, type) => async () => {
-    const { value: text } = await Swal.fire({
-      title: title,
-      input: "textarea",
-      inputPlaceholder: "Type your message here...",
-      showCancelButton: true,
-      cancelButtonColor: SECONDARY,
-      inputValidator: value => {
-        if (!value) {
-          return "You need to write something!";
-        }
-      }
-    });
-    // console.log(text);
-    if (text) {
-      await setAnnouncements([...announcements, { detailText: text, type }]);
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "top",
-        showConfirmButton: false,
-        timer: 3000
-      });
-      return Toast.fire({
-        type: "success",
-        title: "Announcement posted successfully"
-      });
-    }
+  const scrollToAnnouncements = () => {
+    animateScrollTo(document.querySelector("#announcements"), options);
   };
 
   return (
