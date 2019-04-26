@@ -47,7 +47,7 @@ function App() {
           Announcements
         </Header>
       </Container>
-      <DisqusContainer ref={disqusRef}>
+      <DisqusContainer>
         <Disqus />
       </DisqusContainer>
       <Footer />
