@@ -10,6 +10,9 @@ import { Button, ButtonContainer } from "./components/Button";
 import AI from "./assets/images/AI.png";
 import Swal from "sweetalert2";
 import { SECONDARY } from "./constants/colors";
+import { Disqus, DisqusContainer } from "./components/Disqus";
+import { Footer } from "./components/Footer";
+import animateScrollTo from "animated-scroll-to";
 
 function App() {
   const [announcements, setAnnouncements] = React.useState([
@@ -17,6 +20,7 @@ function App() {
     { detailText: "Yeah, I can Help you :)", type: "offer" },
     { detailText: "I need your Help!", type: "need" }
   ]);
+  const disqusRef = React.useRef();
 
   const Modal = (title, type) => async () => {
     const { value: text } = await Swal.fire({
@@ -63,7 +67,15 @@ function App() {
           better place.
         </SubHeading>
         <ButtonContainer>
-          <Button primary onClick={Modal("Need Help Announcement", "need")}>
+          <Button
+            primary
+            onClick={() => {
+              animateScrollTo(document.querySelector("#disqus_thread"));
+              // const textarea = document.querySelector(".textarea");
+              // textarea.focus();
+              // console.log(disqusRef);
+            }}
+          >
             I need help
           </Button>
           <Button onClick={Modal("Offer Help Announcement", "offer")}>
@@ -72,9 +84,13 @@ function App() {
         </ButtonContainer>
       </Container>
       <Container>
-        <Header>Announcements</Header>
-        <AnnouncementsList data={announcements} />
+        <Header announcements>Announcements</Header>
+        {/* <AnnouncementsList data={announcements} /> */}
       </Container>
+      <DisqusContainer ref={disqusRef}>
+        <Disqus />
+      </DisqusContainer>
+      <Footer />
     </>
   );
 }
