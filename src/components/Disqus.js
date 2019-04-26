@@ -8,6 +8,7 @@ const disqusConfig = {
   identifier: "something-unique-12345",
   title: "Example Thread"
 };
+
 export const Disqus = () => {
   return (
     <>
