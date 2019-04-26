@@ -36,20 +36,10 @@ function App() {
           better place.
         </SubHeading>
         <ButtonContainer>
-          <Button
-            primary
-            onClick={() => {
-              animateScrollTo(document.querySelector("#disqus_thread"));
-              // const textarea = document.querySelector(".textarea");
-              // textarea.focus();
-              // console.log(disqusRef);
-            }}
-          >
+          <Button primary onClick={scrollToAnnouncements}>
             I need help
           </Button>
-          <Button onClick={Modal("Offer Help Announcement", "offer")}>
-            I offer help
-          </Button>
+          <Button onClick={scrollToAnnouncements}>I offer help</Button>
         </ButtonContainer>
       </Container>
       <Container>
